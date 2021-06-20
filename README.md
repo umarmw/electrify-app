@@ -64,14 +64,14 @@ Next, go to **Settings > API > Content management tokens** and create a new toke
 With the space ID and management access token at hand run the following command:
 
 ```
-npx cross-env CONTENTFUL_SPACE_ID=YOUR_SPACE_ID CONTENTFUL_MANAGEMENT_TOKEN=XXX npm run setup
+npx cross-env NEXT_PUBLIC_CONTENTFUL_SPACE_ID=YOUR_SPACE_ID CONTENTFUL_MANAGEMENT_TOKEN=XXX npm run setup
 ```
 
 This command will create the needed content structures and set up your Contentful space ready to use. The output should look as follows:
 
 ```
 > cms-contentful@1.0.0 setup /Users/stefan.judis/Projects/next.js/examples/cms-contentful
-> node ./contentful/setup.js $CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN
+> node ./contentful/setup.js $NEXT_PUBLIC_CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN
 
 ┌──────────────────────────────────────────────────┐
 │ The following entities are going to be imported: │
@@ -171,17 +171,17 @@ cp .env.local.example .env.local
 
 Then set each variable on `.env.local`:
 
-- `CONTENTFUL_SPACE_ID` should be the **Space ID** field of your API Key
-- `CONTENTFUL_ACCESS_TOKEN` should be the **[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) - access token** field of your API key
-- `CONTENTFUL_PREVIEW_ACCESS_TOKEN` should be the **[Content Preview API](https://www.contentful.com/developers/docs/references/content-preview-api/) - access token** field of your API key
+- `NEXT_PUBLIC_CONTENTFUL_SPACE_ID` should be the **Space ID** field of your API Key
+- `NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN` should be the **[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) - access token** field of your API key
+- `NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN` should be the **[Content Preview API](https://www.contentful.com/developers/docs/references/content-preview-api/) - access token** field of your API key
 - `CONTENTFUL_PREVIEW_SECRET` should be any value you want. It must be URL friendly as the dashboard will send it as a query parameter to enable preview mode
 
 Your `.env.local` file should look like this:
 
 ```bash
-CONTENTFUL_SPACE_ID=...
-CONTENTFUL_ACCESS_TOKEN=...
-CONTENTFUL_PREVIEW_ACCESS_TOKEN=...
+NEXT_PUBLIC_CONTENTFUL_SPACE_ID=...
+NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=...
+NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN=...
 CONTENTFUL_PREVIEW_SECRET=...
 ```
 
