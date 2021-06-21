@@ -1,12 +1,25 @@
+import styled from 'styled-components'
+
+const AvatarStyle = styled.div`
+  .avatar__img {
+    width: 100px;
+    border-radius: 50%;
+  }
+  .avatar__name {
+    font-style: italic;
+  }
+`
+
+
 export default function Avatar({ name, picture }) {
   return (
-    <div className="flex items-center">
+    <AvatarStyle>
       <img
         src={picture.url}
-        className="w-12 h-12 rounded-full mr-4"
+        className="avatar__img"
         alt={name}
       />
-      <div className="text-xl font-bold">{name}</div>
-    </div>
+      <div className="avatar__name">{name}</div>
+    </AvatarStyle>
   )
 }
