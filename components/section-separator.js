@@ -1,3 +1,11 @@
+import styled from 'styled-components'
+
+const HrStyled = styled.hr`
+  border: 1px solid #ccc;
+  margin-top: 28px;
+  margin-bottom: 24px;
+`
+
 export default function SectionSeparator() {
-  return <hr className="border-accent-2 mt-28 mb-24" />
+  return <HrStyled />
 }

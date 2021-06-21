@@ -1,7 +1,15 @@
+import styled from 'styled-components'
+
+const H1Styled = styled.h1`
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+`
+
 export default function PostTitle({ children }) {
   return (
-    <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+    <H1Styled>
       {children}
-    </h1>
+    </H1Styled>
   )
 }
