@@ -4,6 +4,7 @@ import Container from '../components/container'
 import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
 import HeroBanner from '../components/hero-banner'
+import AboutBanner from '../components/about-banner'
 import { getAllPostsForHome, getHeroBanner, getMainMenu, getTopMenu } from '../lib/api'
 import Head from 'next/head'
 
@@ -53,7 +54,7 @@ const PostMainTitle = styled.div`
   
 `;
 
-export default function Index({ preview, allPosts, heroBannerItem, mainMenuItems, topMenuItems  }) {
+export default function Index({ preview, allPosts, heroBannerItem, aboutBannerItem, mainMenuItems, topMenuItems  }) {
 
 
   const posts = allPosts;
@@ -71,6 +72,7 @@ export default function Index({ preview, allPosts, heroBannerItem, mainMenuItems
           imageMobile={heroBannerItem.imageMobile}  
           imageDesktop={heroBannerItem.imageDesktop} 
         />
+
         
         <Container>
 
@@ -107,6 +109,14 @@ export default function Index({ preview, allPosts, heroBannerItem, mainMenuItems
             </div>
           </PostContainer>
 
+          <AboutBanner 
+          title={aboutBannerItem.title} 
+          subtitle={aboutBannerItem.subtitle}  
+          imageMobile={aboutBannerItem.imageMobile}  
+          imageDesktop={aboutBannerItem.imageDesktop} 
+        />
+
+
         </Container>
       </Layout>
     </>
@@ -116,9 +126,10 @@ export default function Index({ preview, allPosts, heroBannerItem, mainMenuItems
 export async function getStaticProps({ preview = false }) {
   const allPosts = (await getAllPostsForHome(preview)) ?? []
   const heroBannerItem = (await getHeroBanner('2cdZ42QVAFufVXp7cxnRUm', preview)) ?? []
+  const aboutBannerItem = (await getHeroBanner('xlYkXDLlbM8h3ExF4vfZ2', preview)) ?? []
   const mainMenuItems = (await getMainMenu(preview)) ?? []
   const topMenuItems = (await getTopMenu(preview)) ?? []
   return {
-    props: { preview, allPosts, heroBannerItem, mainMenuItems, topMenuItems },
+    props: { preview, allPosts, heroBannerItem, aboutBannerItem, mainMenuItems, topMenuItems },
   }
 }
