@@ -6,21 +6,23 @@ import { FaTimes, FaBars, FaSearch } from "react-icons/fa";
 const Navbar = styled.div`
   background-color: #0b0f4d;
   width: 100%;
-  position: fixed;
+
   font-family: Omnes, Arial, sans-serif;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 
-  .container {
+  .navbar {
     height: 60px;
     padding: 0 20px 0 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    z-index: 1;
     //logo
-    .navbar-logo {
+    &__logo {
       width: 150px;
       height: auto;
 
@@ -37,7 +39,7 @@ const Navbar = styled.div`
     }
 
     //navbar-links
-    .navbar-container {
+    .navbar-content {
       position: fixed;
       top: 18px;
       width: 100%;
@@ -53,15 +55,15 @@ const Navbar = styled.div`
         opacity: 0.2;
       }
 
-      .navbar-content {
+      &__list {
         width: 80%;
         background-color: #0b0f4d;
         display: flex;
         flex-direction: column;
         padding: 24px 0 0 40px;
 
-        .navbar-left {
-          &__links {
+        &-left {
+          &-items {
             display: flex;
             flex-direction: column;
             .left-link {
@@ -132,37 +134,32 @@ const Navbar = styled.div`
   }
 
   @media (min-width: 1033px) {
-    .container {
+    .navbar {
       justify-content: center;
       align-items: center !important;
       margin: 0 2%;
       padding: 0;
-      .navbar-container {
+
+      .navbar-content {
         position: inherit;
 
         &__clickable {
           display: none;
         }
 
-        .navbar-content {
+        &__list {
           width: 100%;
           position: inherit;
           flex-direction: row;
           padding: 0;
           justify-content: space-between;
 
-          .link {
-            padding: 10px;
-            line-height: normal;
-            display: flex;
-            align-items: center;
-          }
-
-          .navbar-left {
+          &-left {
             display: flex;
             justify-content: flex-start;
             padding-left: 30px;
-            &__links {
+
+            &-items {
               flex-direction: row;
               font-size: 14px;
 
@@ -192,6 +189,13 @@ const Navbar = styled.div`
             }
           }
         }
+
+        .link {
+          padding: 10px;
+          line-height: normal;
+          display: flex;
+          align-items: center;
+        }
       }
       .mobile-nav {
         display: none;
@@ -215,23 +219,21 @@ export default function Header() {
 
   return (
     <Navbar>
-      <div className="container">
-        <div className="navbar-logo">
+      <div className="navbar">
+        <div className="navbar__logo">
           <Link href="/">
             <img className="logo" src="images/logo.svg" />
           </Link>
         </div>
 
-        <div
-          className={`navbar-container ${isClicked ? "active" : "no-active"}`}
-        >
+        <div className={`navbar-content ${isClicked ? "active" : "no-active"}`}>
           <div
-            className="navbar-container__clickable"
+            className="navbar-content__clickable"
             onClick={toggleClicked}
           ></div>
-          <div className="navbar-content">
-            <div className="navbar-left">
-              <div className="navbar-left__links">
+          <div className="navbar-content__list">
+            <div className="navbar-content__list-left">
+              <div className="navbar-content__list-left-items">
                 <Link href="/">
                   <a className="left-link link">Home</a>
                 </Link>

@@ -5,7 +5,8 @@ export default function CoverImage({ title, url, slug }) {
     <img
       src={url}
       alt={`Cover Image for ${title}`}
-      className={slug}
+      className={[slug, "img--responsive img--rounded"].join(" ")}
+      loading="lazy"
     />
   )
   return (
