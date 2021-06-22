@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 4px;
   }
 
-  main {
+  .main {
     padding: 0;
     @media only screen and (min-width: 768px){
       padding: 40px;

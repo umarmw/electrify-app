@@ -19,18 +19,7 @@ export default function Alert({ preview }) {
               </a>{' '}
               to exit preview mode.
             </>
-          ) : (
-            <>
-              The source code for this blog is{' '}
-              <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-                className=""
-              >
-                available on GitHub
-              </a>
-              .
-            </>
-          )}
+          ) : null }
         </div>
       </Container>
     </div>

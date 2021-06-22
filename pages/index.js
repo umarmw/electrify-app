@@ -73,14 +73,15 @@ export default function Index({
 
         <Header menulinks={mainMenuItems} />
 
-        <HeroBanner
-          title={heroBannerItem.title}
-          subtitle={heroBannerItem.subtitle}
-          imageMobile={heroBannerItem.imageMobile}
-          imageDesktop={heroBannerItem.imageDesktop}
-        />
+        <section className="main">
+          <HeroBanner
+            title={heroBannerItem.title}
+            subtitle={heroBannerItem.subtitle}
+            imageMobile={heroBannerItem.imageMobile}
+            imageDesktop={heroBannerItem.imageDesktop}
+          />
 
-        <Container>
+          <Container>
 
           <InnerContainer>
             <h2 className="post-container__title"> Learn about charging with <br/>  Electrify America </h2>
@@ -120,6 +121,8 @@ export default function Index({
             imageDesktop={aboutBannerItem.imageDesktop}
           />
         </Container>
+
+        </section>
       </Layout>
     </>
   );

@@ -40,6 +40,7 @@ export default function Post({ post, morePosts, preview }) {
 
   return (
     <Layout preview={preview}>
+      <section className="main">
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -62,6 +63,7 @@ export default function Post({ post, morePosts, preview }) {
           </InnerContainer>
         )}
       </Container>
+      </section>
     </Layout>
   )
 }
