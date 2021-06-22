@@ -11,15 +11,16 @@ const FooterStyle = styled.div`
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: "Omnes Regular";
+    font-family: "Omnes";
     line-height: 30px;
+    font-size: 14px;
   }
 
   .link-info {
     color: #fff;
     text-decoration: none;
     padding: 10px;
-    font-family: "Omnes Regular";
+    font-family: "Omnes";
     line-height: 30px;
     font-size: 14px;
   }
@@ -28,18 +29,17 @@ const FooterStyle = styled.div`
   }
 
   .header {
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .footer {
     padding: 32px;
-
     .footer-content {
       &__logo {
         height: 100px;
 
         .logo {
-          height: 80%;
+          height: 60%;
           width: auto;
         }
       }
@@ -79,7 +79,7 @@ const FooterStyle = styled.div`
         .logo {
           width: 93px;
           height: 36px;
-          padding: 10px;
+          padding: 5px;
         }
       }
 
@@ -89,16 +89,24 @@ const FooterStyle = styled.div`
       }
       &__info {
         text-align: center;
+        span {
+          font-weight: 600;
+        }
       }
     }
   }
 
   @media (min-width: 1033px) {
+    padding: 65px 0 38px;
+    width: 100%;
+
     .footer {
       display: flex;
       flex-direction: column;
+      padding: 0px 130px;
 
       .footer-content {
+        margin: 0 0 50px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -107,7 +115,15 @@ const FooterStyle = styled.div`
           display: flex;
           flex-direction: row;
           justify-content: space-around;
-          width: 70%;
+          width: 100%;
+        }
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        &__social {
+          padding: 20px;
         }
       }
     }
@@ -177,12 +193,14 @@ export default function Footer() {
               </Link>
             </div>
 
-            <div className="footer-content__items-list-1">
+            <div className="footer-content__items-list">
               <Link href="/">
-                <a className="header link p-b">home products</a>
+                <a className="header link">home products</a>
               </Link>
+            </div>
+            <div className="footer-content__items-list">
               <Link href="/">
-                <a className=" header link p-b "> commercial solutions</a>
+                <a className=" header link"> commercial solutions</a>
               </Link>
             </div>
           </div>
@@ -197,14 +215,15 @@ export default function Footer() {
           <div className="footer-bottom__social">
             <Social />
           </div>
-
-          <div className="footer-bottom__info">
-            <a className="link-info header">© 2021 Electrify America</a>
-            <a className="link-info">Privacy</a>
-            <a className="link-info">Terms of use</a>
-            <a className="link-info">Social Media House</a>
-            <a className="link-info">Support: 1-833-632-2778</a>
-          </div>
+        </div>
+        <div className="footer-bottom__info">
+          <a className="link-info header">© 2021 Electrify America</a>
+          <a className="link-info">Privacy</a>
+          <a className="link-info">Terms of use</a>
+          <a className="link-info">Social Media House</a>
+          <a className="link-info">
+            Support: <span>1-833-632-2778</span>
+          </a>
         </div>
       </div>
     </FooterStyle>
