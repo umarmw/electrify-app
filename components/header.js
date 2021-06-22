@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaTimes, FaBars, FaSearch } from "react-icons/fa";
 
 const Navbar = styled.div`
+  font-family: 'Omnes';
   background-color: #0b0f4d;
   width: 100%;
   padding: 0;
@@ -15,16 +16,26 @@ const Navbar = styled.div`
   z-index: 1;
 
   .navbar {
-    height: 60px;
-    padding: 0 20px 0 0;
+
+    padding: 0 30px 0 40px;
     width: 100%;
+    max-width: auto;
+
+    @media (min-width: 1025px) {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px 0 0;
+    }
+
+    height: 60px;
+    
     display: flex;
     justify-content: space-between;
     z-index: 1;
 
     //logo
     &__logo {
-      width: 150px;
+      width: 135px;
       height: auto;
 
       .logo {
@@ -86,7 +97,7 @@ const Navbar = styled.div`
           text-decoration: none;
           line-height: 50px;
           text-transform: uppercase;
-          font-family: "Omnes Regular";
+          // font-family: "Omnes";
         }
       }
     }
