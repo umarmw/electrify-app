@@ -120,7 +120,7 @@ export default function Footer() {
       <div className="footer">
         <div className="footer-content">
           <div className="footer-content__logo">
-            <img className="logo" src="images/logo.svg" />
+            <img className="logo" src="/images/logo.svg" />
           </div>
           <div className="footer-content__items">
             <div className="footer-content__items-list">
@@ -190,8 +190,8 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <div className="footer-bottom__store">
-            <img className="logo" src="images/apple.png" />
-            <img className="logo" src="images/android.png" />
+            <img className="logo" src="/images/apple.png" />
+            <img className="logo" src="/images/android.png" />
           </div>
 
           <div className="footer-bottom__social">

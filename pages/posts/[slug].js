@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import Header from "../../components/header";
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
@@ -7,7 +7,7 @@ import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
+import { getAllPostsWithSlug, getPostAndMorePosts, getMainMenu, getTopMenu } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 
 
@@ -31,7 +31,7 @@ const InnerContainer = styled.div`
 `
 
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, morePosts, preview, mainMenuItems, topMenuItems }) {
   const router = useRouter()
 
   if (!router.isFallback && !post) {
@@ -40,6 +40,9 @@ export default function Post({ post, morePosts, preview }) {
 
   return (
     <Layout preview={preview}>
+
+      <Header menulinks={mainMenuItems} />
+
       <section className="main">
       <Container>
         {router.isFallback ? (
@@ -70,12 +73,16 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
+  const mainMenuItems = (await getMainMenu(preview)) ?? [];
+  const topMenuItems = (await getTopMenu(preview)) ?? [];
 
   return {
     props: {
       preview,
       post: data?.post ?? null,
       morePosts: data?.morePosts ?? null,
+      mainMenuItems,
+      topMenuItems,
     },
   }
 }
