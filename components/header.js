@@ -4,11 +4,10 @@ import { useState } from "react";
 import { FaTimes, FaBars, FaSearch } from "react-icons/fa";
 
 const Navbar = styled.div`
-  font-family: 'Omnes';
+  font-family: "Omnes";
   background-color: #0b0f4d;
   width: 100%;
   padding: 0;
-
   height: 80px;
   display: flex;
   align-items: center;
@@ -16,7 +15,6 @@ const Navbar = styled.div`
   z-index: 1;
 
   .navbar {
-
     padding: 0 30px 0 40px;
     width: 100%;
     max-width: auto;
@@ -28,7 +26,6 @@ const Navbar = styled.div`
     }
 
     height: 60px;
-    
     display: flex;
     justify-content: space-between;
     z-index: 1;
@@ -54,7 +51,7 @@ const Navbar = styled.div`
     //navbar-links
     .navbar-content {
       position: fixed;
-      top: 18px;
+      top: 0;
       width: 100%;
       height: 100%;
       display: flex;
@@ -66,6 +63,11 @@ const Navbar = styled.div`
         transition: all 0.5s;
         background-color: gray;
         opacity: 0.2;
+        @media (min-width: 768px) {
+          width: 60%;
+          max-width: 1200px;
+          padding: 0 20px 0 0;
+        }
       }
 
       &__list {
@@ -73,12 +75,26 @@ const Navbar = styled.div`
         background-color: #0b0f4d;
         display: flex;
         flex-direction: column;
-        padding: 24px 0 0 40px;
+        padding: 24px 0 100px 40px;
+
+        @media (min-width: 768px) {
+          width: 40%;
+          max-width: 1200px;
+        }
 
         &-left {
           &-items {
             display: flex;
             flex-direction: column;
+            .link {
+              color: #fff;
+              text-decoration: none;
+              padding: 15px 15px 15px 0;
+              text-transform: uppercase;
+              font-size: 14px;
+
+              font-weight: 500;
+            }
             .left-link {
             }
           }
@@ -87,18 +103,17 @@ const Navbar = styled.div`
           &__links {
             display: flex;
             flex-direction: column;
+
             .right-link {
-              font-weight: 800;
+              color: #fff;
+              text-decoration: none;
+              text-transform: uppercase;
+              font-size: 16px;
+              font-size: 16px;
+              font-weight: 600;
+              line-height: 50px;
             }
           }
-        }
-
-        .link {
-          color: #fff;
-          text-decoration: none;
-          line-height: 50px;
-          text-transform: uppercase;
-          // font-family: "Omnes";
         }
       }
     }
@@ -107,7 +122,6 @@ const Navbar = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 3px;
 
       &__search {
         display: flex;
@@ -118,6 +132,7 @@ const Navbar = styled.div`
           background-color: #0b0f4d;
           border: none;
           border-bottom: 1px solid #fff;
+          width: 120px;
           color: #fff;
 
           ::placeholder {
@@ -143,7 +158,7 @@ const Navbar = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 10px;
+      padding-left: 10px;
     }
   }
 
@@ -156,6 +171,7 @@ const Navbar = styled.div`
 
       .navbar-content {
         position: inherit;
+        height: 80px;
 
         &__clickable {
           display: none;
@@ -178,9 +194,6 @@ const Navbar = styled.div`
               font-size: 14px;
 
               .left-link {
-                :first-child {
-                  display: none;
-                }
               }
             }
           }
@@ -188,7 +201,7 @@ const Navbar = styled.div`
             display: flex;
             justify-content: flex-end;
             width: 50px;
-            margin-top: -10px;
+
             height: 80px;
 
             &__links {
@@ -196,16 +209,32 @@ const Navbar = styled.div`
               font-size: 14px;
               width: auto;
 
-              .right-link {
-                border-left: 1px solid gray;
-                border-right: 1px solid gray;
+              .link-container {
+                width: 125px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                :first-child {
+                  border-right: 1px solid hsla(0, 0%, 100%, 0.3);
+                  border-left: 1px solid hsla(0, 0%, 100%, 0.3);
+                }
+
+                :last-child {
+                  border-right: 1px solid hsla(0, 0%, 100%, 0.3);
+                }
+
+                .right-link {
+                  padding: 0 15px 0 15px;
+                  line-height: normal;
+                }
               }
             }
           }
         }
 
         .link {
-          padding: 10px;
           line-height: normal;
           display: flex;
           align-items: center;
@@ -260,12 +289,16 @@ const Header = ({ menulinks }) => {
 
             <div className="navbar-right">
               <div className="navbar-right__links">
-                <Link href="/">
-                  <a className="right-link link">Home products</a>
-                </Link>
-                <Link href="/">
-                  <a className="right-link link">Commercial solutions</a>
-                </Link>
+                <div className="link-container">
+                  <Link href="/">
+                    <a className="right-link  link ">Home products</a>
+                  </Link>
+                </div>
+                <div className="link-container">
+                  <Link href="/">
+                    <a className="right-link  link ">Commercial solutions</a>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
