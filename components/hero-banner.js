@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
-import { MOB_BANNER_IMAGE_URL, DESK_BANNER_IMAGE_URL } from '../lib/constants';
 import { IoMdArrowDroprightCircle } from 'react-icons/io';
 
 const HeroBannerStyle = styled.div`
@@ -105,29 +104,39 @@ const HeroBannerStyle = styled.div`
 `;
 
 
-const HeroBanner = () => {
+const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
 
-    const [imageBanner, setImageBanner] = useState(MOB_BANNER_IMAGE_URL);
-    
+    const [isMobile, setIsMobile] = useState(true);
+
+    const handleResize = () => {
+        if (window) {
+            setIsMobile(window.innerWidth <= 992);
+        }
+    };
+
     useEffect(() => {
-        window.screen.width <= 320 
-            ? setImageBanner(MOB_BANNER_IMAGE_URL)
-            : setImageBanner(DESK_BANNER_IMAGE_URL);
+        handleResize();
+        if (window) {
+            window.addEventListener('resize', handleResize);
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
     });
-
 
     return (
       <HeroBannerStyle>
         <div className="image_wrapper">
-            <img src={imageBanner} alt='Woman charging an electric vehicle' />
+            <img src={(isMobile)
+            ? imageMobile?.url
+            : imageDesktop?.url} alt='Woman charging an electric vehicle' loading="lazy" />
         </div>
         <div className='hero_text_container'> 
             <div className='hero_text_header'>
-                <span>Find Charging fast</span>
+                <span>{title}</span>
             </div>
             <div className='hero_text_detail'>
-                Explore the largest public fast charging network in the  
-                U.S. — letting you charge in as little as 30 minutes 
+                {subtitle}
             </div>
             <div className='hero_search_container'>
                 <form>
