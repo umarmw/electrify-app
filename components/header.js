@@ -37,6 +37,7 @@ const Navbar = styled.div`
     &__logo {
       width: 135px;
       height: auto;
+      cursor: pointer;
 
       .logo {
         width: 100%;
@@ -235,7 +236,7 @@ const Header = ({ menulinks, title, url }) => {
       <div className="navbar">
         <div className="navbar__logo">
           <Link href="/">
-            <img className="logo" src="images/logo.svg" />
+            <img className="logo" src="/images/logo.svg" />
           </Link>
         </div>
 
