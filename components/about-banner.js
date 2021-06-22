@@ -5,19 +5,21 @@ const AboutBannerStyle = styled.div`
 
     width: 100%;
     position: relative;
+    font-family: 'Omnes';
 
     @media only screen and (min-width: 768px){
         border-radius: 10px;
     }
 
     .About__link {
-        margin-left: 20px;
+        margin-left: 24px;
+        margin-top: 15px;
         margin-bottom: 25px;
 
         @media only screen and (min-width: 768px){
             position: absolute;
-            top: 50px;
-            left: 100px;
+            top: 90px;
+            left: 105px;
         }
         @media only screen and (min-width: 1024px){
             position: absolute;
@@ -35,7 +37,6 @@ const AboutBannerStyle = styled.div`
             text-transform: uppercase;
             color: #011352;
             font-weight: bold;
-            font-family: Arial, Helvetica, sans-serif;
 
             @media only screen and (min-width: 768px){
                 color: white;
@@ -74,10 +75,11 @@ const AboutBannerStyle = styled.div`
         position: relative;
         bottom: -5px;
         left: 0;
+        color: #011352;
 
         @media only screen and (min-width: 768px){
             position: absolute;
-            top: 75px;
+            top: 125px;
             left: 100px;
             margin: 0 150px 0 0px;
         }
@@ -97,15 +99,13 @@ const AboutBannerStyle = styled.div`
 
     .hero_text_header{
         margin-left: 24px;
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 40px;
-        color: black;
         line-height: 52px;
         letter-spacing: .05em;
 
         @media only screen and (min-width: 768px){
+            font-size: 48px;
             color: white;
-            font-size: 35px;
         }
 
         @media only screen and (min-width: 1024px){
@@ -114,14 +114,12 @@ const AboutBannerStyle = styled.div`
         }
 
         @media only screen and (min-width: 1440px){
-            font-size: 40px;
             width: 500px;
             line-height: 50px;
         }
     }
 
     .hero_text_detail{
-        font-family: Arial, Helvetica, sans-serif;
         margin-left: 24px;
         margin-top: 24px;
         font-size: 18px;
@@ -142,7 +140,6 @@ const AboutBannerStyle = styled.div`
         @media only screen and (min-width: 1440px){
             font-size: 20px;
             width: 500px;
-            line-height: 40px;
         }
     }
 `;
@@ -152,8 +149,9 @@ const AboutBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
     const [isMobile, setIsMobile] = useState(true);
     
     const Arrow_SVG = 
-        <svg className='arrow' width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
-    ;
+        <svg class="arrow" width="24" height="15" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <path d="M4.898.165a.563.563 0 00-.796.795L7.08 3.938H.562a.563.563 0 000 1.124H7.08L4.101 8.04a.563.563 0 00.796.795l3.937-3.937a.563.563 0 000-.796L4.898.165z"></path>
+        </svg>;
 
     const handleResize = () => {
         if (window) {
