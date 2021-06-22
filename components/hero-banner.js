@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import styled from "styled-components";
-import { IoMdArrowDroprightCircle } from 'react-icons/io';
 
 const HeroBannerStyle = styled.div`
 
@@ -98,6 +97,23 @@ const HeroBannerStyle = styled.div`
             font-size: 40px;
             color: #29b5d0;
         }
+
+        .icon_circle {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 10px;
+            border-radius: 100px;
+            background-color: #29b5d0;
+            top: 8px;
+            cursor: pointer;
+
+            .arrow {
+                position: relative;
+                top: 13px;
+                left: 13px;
+            }
+        }
     
     }
     
@@ -107,6 +123,11 @@ const HeroBannerStyle = styled.div`
 const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
 
     const [isMobile, setIsMobile] = useState(true);
+
+    const Arrow_SVG = 
+        <svg width="15" height="15" data-v-1dec9b0e="" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow">
+            <path data-v-1dec9b0e="" d="M.785.556c-.309.309-.309.81 0 1.12l5.038 5.037-5.262 5.262a.792.792 0 001.12 1.12L7.356 7.42a1 1 0 000-1.414L1.905.556a.792.792 0 00-1.12 0z" fill="#EFEFEF"></path>
+        </svg>;
 
     const handleResize = () => {
         if (window) {
@@ -141,7 +162,9 @@ const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
             <div className='hero_search_container'>
                 <form>
                     <input className='hero_search_input' placeholder='ENTER CITY OR ZIP' />
-                    <IoMdArrowDroprightCircle className='search_box_icon'/>
+                    <div className='icon_circle'>
+                        {Arrow_SVG || ""}
+                    </div>
                 </form>
             </div>
         </div>

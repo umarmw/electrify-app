@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+import Contactless from '../components/contactless-post'
 import Container from '../components/container'
 import HeroPost from '../components/hero-post'
 import Layout from '../components/layout'
@@ -103,18 +104,22 @@ export default function Index({ preview, allPosts, heroBannerItem, aboutBannerIt
                   slug={item.slug}
                   excerpt={item.excerpt}
                   />
-                 
                 )
+                
               }
+              <Contactless />
             </div>
+            
           </PostContainer>
 
-          <AboutBanner 
+          
+
+        <AboutBanner 
           title={aboutBannerItem.title} 
           subtitle={aboutBannerItem.subtitle}  
           imageMobile={aboutBannerItem.imageMobile}  
           imageDesktop={aboutBannerItem.imageDesktop} 
-        />
+        />  
 
 
         </Container>
