@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
+import "../public/fonts/style.css";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -42,13 +43,15 @@ const GlobalStyle = createGlobalStyle`
       padding: 40px;
     }
   }
-`
+`;
 
 function MyApp({ Component, pageProps }) {
-  return <>
-    <GlobalStyle />
-    <Component {...pageProps} />
-  </>
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

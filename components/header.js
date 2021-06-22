@@ -6,8 +6,8 @@ import { FaTimes, FaBars, FaSearch } from "react-icons/fa";
 const Navbar = styled.div`
   background-color: #0b0f4d;
   width: 100%;
+  padding: 0;
 
-  font-family: Omnes, Arial, sans-serif;
   height: 80px;
   display: flex;
   align-items: center;
@@ -21,6 +21,7 @@ const Navbar = styled.div`
     display: flex;
     justify-content: space-between;
     z-index: 1;
+
     //logo
     &__logo {
       width: 150px;
@@ -85,6 +86,7 @@ const Navbar = styled.div`
           text-decoration: none;
           line-height: 50px;
           text-transform: uppercase;
+          font-family: "Omnes Regular";
         }
       }
     }
@@ -204,7 +206,7 @@ const Navbar = styled.div`
   }
 `;
 
-export default function Header() {
+const Header = ({ menulinks, title, url }) => {
   const [isClicked, setClicked] = useState();
 
   const toggleClicked = () => {
@@ -234,21 +236,13 @@ export default function Header() {
           <div className="navbar-content__list">
             <div className="navbar-content__list-left">
               <div className="navbar-content__list-left-items">
-                <Link href="/">
-                  <a className="left-link link">Home</a>
-                </Link>
-                <Link href="/">
-                  <a className="left-link link">Locate a charger</a>
-                </Link>
-                <Link href="/">
-                  <a className="left-link link">How it works</a>
-                </Link>
-                <Link href="/">
-                  <a className="left-link link">Pricing</a>
-                </Link>
-                <Link href="/">
-                  <a className="left-link link">Mobile app</a>
-                </Link>
+                {menulinks[0].menulinks.items.map(({ title, url }) => {
+                  return (
+                    <Link href={url}>
+                      <a className="left-link link">{title}</a>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -284,4 +278,6 @@ export default function Header() {
       </div>
     </Navbar>
   );
-}
+};
+
+export default Header;

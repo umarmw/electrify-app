@@ -71,7 +71,7 @@ export default function Index({
           <title>Electrify America</title>
         </Head>
 
-        <Header />
+        <Header menulinks={mainMenuItems} />
 
         <HeroBanner
           title={heroBannerItem.title}
@@ -135,6 +135,9 @@ export async function getStaticProps({ preview = false }) {
     (await getHeroBanner("xlYkXDLlbM8h3ExF4vfZ2", preview)) ?? [];
   const mainMenuItems = (await getMainMenu(preview)) ?? [];
   const topMenuItems = (await getTopMenu(preview)) ?? [];
+
+  console.log(heroBannerItem);
+
   return {
     props: {
       preview,
