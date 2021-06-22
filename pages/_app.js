@@ -1,28 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
+import TypoStyles from '../styles/typography';
 
 const GlobalStyle = createGlobalStyle`
-
-  @font-face {
-  font-family: 'Omnes';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Omnes'), url('./fonts/omnes-regular-webfont.woff') format('woff');
-  }
-
-  @font-face {
-    font-family: 'Omnes';
-    font-style: normal;
-    font-weight: 600;
-    src: local('Omnes'), url('./fonts/omnes_medium-webfont.woff') format('woff');
-  }
-
-  @font-face {
-    font-family: 'Omnes';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Omnes'), url('./fonts/omnes-semibold-webfont.woff') format('woff');
-  }
-  
+  ${TypoStyles}
   body {
     margin: 0;
     padding: 0;

@@ -8,7 +8,7 @@ import AboutBanner from '../components/about-banner'
 import { getAllPostsForHome, getHeroBanner, getMainMenu, getTopMenu } from '../lib/api'
 import Head from 'next/head'
 
-const PostContainer = styled.div`
+const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -76,7 +76,7 @@ export default function Index({ preview, allPosts, heroBannerItem, aboutBannerIt
         
         <Container>
 
-          <PostContainer>
+          <InnerContainer>
             <h2 className="post-container__title"> Learn about charging with <br/>  Electrify America </h2>
             <div className="post-container__section">
               {
@@ -107,7 +107,7 @@ export default function Index({ preview, allPosts, heroBannerItem, aboutBannerIt
                 )
               }
             </div>
-          </PostContainer>
+          </InnerContainer>
 
           <AboutBanner 
           title={aboutBannerItem.title} 

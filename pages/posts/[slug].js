@@ -1,16 +1,35 @@
+import styled from 'styled-components'
+
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
-import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
-import SectionSeparator from '../../components/section-separator'
 import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
-import { CMS_NAME } from '../../lib/constants'
+
+
+const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  max-width: 1920px;
+  margin: 0px auto;
+  padding: 0px 20px 30px;
+
+  @media only screen and (max-width: 1130px){
+    margin: 60px 0px 0px;
+  }
+
+  @media (min-width: 750px) {
+    padding: 60px 100px 80px;
+    flex-direction: normal;
+  }
+
+`
+
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -22,15 +41,14 @@ export default function Post({ post, morePosts, preview }) {
   return (
     <Layout preview={preview}>
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
+          <InnerContainer>
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title}
                 </title>
                 <meta property="og:image" content={post.coverImage.url} />
               </Head>
@@ -38,15 +56,10 @@ export default function Post({ post, morePosts, preview }) {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={post.author}
               />
               <PostBody content={post.content} />
             </article>
-            <SectionSeparator />
-            {morePosts && morePosts.length > 0 && (
-              <MoreStories posts={morePosts} />
-            )}
-          </>
+          </InnerContainer>
         )}
       </Container>
     </Layout>
