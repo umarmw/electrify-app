@@ -140,8 +140,6 @@ export async function getStaticProps({ preview = false }) {
   const mainMenuItems = (await getMainMenu(preview)) ?? [];
   const topMenuItems = (await getTopMenu(preview)) ?? [];
 
-  console.log(heroBannerItem);
-
   return {
     props: {
       preview,

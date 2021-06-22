@@ -218,7 +218,7 @@ const Navbar = styled.div`
   }
 `;
 
-const Header = ({ menulinks, title, url }) => {
+const Header = ({ menulinks }) => {
   const [isClicked, setClicked] = useState();
 
   const toggleClicked = () => {
@@ -248,7 +248,7 @@ const Header = ({ menulinks, title, url }) => {
           <div className="navbar-content__list">
             <div className="navbar-content__list-left">
               <div className="navbar-content__list-left-items">
-                {menulinks[0].menulinks.items.map(({ title, url }) => {
+                {menulinks && menulinks?.menulinks?.items?.map(({ title, url }) => {
                   return (
                     <Link href={url}>
                       <a className="left-link link">{title}</a>
