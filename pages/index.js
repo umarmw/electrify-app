@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
 import Layout from '../components/layout'
 import HeroBanner from '../components/hero-banner'
-import { getAllPostsForHome } from '../lib/api'
+import { getAllPostsForHome, getHeroBanner, getMainMenu, getTopMenu } from '../lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 
 const PostContainer = styled.div`
   display: flex;
@@ -56,9 +53,8 @@ const PostMainTitle = styled.div`
   
 `;
 
-export default function Index({ preview, allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index({ preview, allPosts, heroBannerItem, mainMenuItems, topMenuItems  }) {
+
 
   const posts = allPosts;
 
@@ -66,11 +62,17 @@ export default function Index({ preview, allPosts }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Electrify America</title>
         </Head>
-        <HeroBanner />
+
+        <HeroBanner 
+          title={heroBannerItem.title} 
+          subtitle={heroBannerItem.subtitle}  
+          imageMobile={heroBannerItem.imageMobile}  
+          imageDesktop={heroBannerItem.imageDesktop} 
+        />
+        
         <Container>
-          <Intro />
 
           <PostContainer>
             <h2 className="post-container__title"> Learn about charging with <br/>  Electrify America </h2>
@@ -104,18 +106,7 @@ export default function Index({ preview, allPosts }) {
               }
             </div>
           </PostContainer>
-{/* 
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+
         </Container>
       </Layout>
     </>
@@ -124,7 +115,10 @@ export default function Index({ preview, allPosts }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = (await getAllPostsForHome(preview)) ?? []
+  const heroBannerItem = (await getHeroBanner('2cdZ42QVAFufVXp7cxnRUm', preview)) ?? []
+  const mainMenuItems = (await getMainMenu(preview)) ?? []
+  const topMenuItems = (await getTopMenu(preview)) ?? []
   return {
-    props: { preview, allPosts },
+    props: { preview, allPosts, heroBannerItem, mainMenuItems, topMenuItems },
   }
 }
