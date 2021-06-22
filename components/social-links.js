@@ -11,12 +11,12 @@ import styled from "styled-components";
 
 const SocialStyle = styled.div`
   .social-links {
-    width: 50vw;
     display: flex;
     justify-content: space-between;
     .social-link {
       font-size: 30px;
       color: #fff;
+      padding: 0px 5px;
     }
   }
 
@@ -26,7 +26,7 @@ const SocialStyle = styled.div`
     }
 
     .social-link {
-      padding: 5px;
+      padding: 0px 5px;
     }
   }
 `;

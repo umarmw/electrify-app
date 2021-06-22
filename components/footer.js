@@ -4,15 +4,14 @@ import Social from "./social-links";
 
 const FooterStyle = styled.div`
   height: auto;
-  width: 100%;
   background-color: #011352;
-
+  letter-spacing: 0.02em;
   .link {
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
     font-family: "Omnes";
-    line-height: 30px;
+    line-height: 23px;
     font-size: 14px;
   }
 
@@ -21,7 +20,7 @@ const FooterStyle = styled.div`
     text-decoration: none;
     padding: 10px;
     font-family: "Omnes";
-    line-height: 30px;
+    line-height: 23px;
     font-size: 14px;
   }
   .p-b {
@@ -35,8 +34,9 @@ const FooterStyle = styled.div`
   .footer {
     padding: 32px;
     .footer-content {
+      margin-bottom: 50px;
       &__logo {
-        height: 100px;
+        height: 95px;
 
         .logo {
           height: 60%;
@@ -70,25 +70,31 @@ const FooterStyle = styled.div`
       display: flex;
       justify-content: center;
       flex-direction: column;
+      align-items: center;
       &__store {
         width: auto;
         display: flex;
         justify-content: center;
-        padding: 20px;
 
         .logo {
           width: 93px;
           height: 36px;
-          padding: 5px;
+          padding: 0px 5px;
         }
       }
 
       &__social {
         display: flex;
         justify-content: center;
+        margin-top: 20px;
       }
       &__info {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 80px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        line-height: normal;
         span {
           font-weight: 600;
         }
@@ -96,34 +102,67 @@ const FooterStyle = styled.div`
     }
   }
 
-  @media (min-width: 1033px) {
-    padding: 65px 0 38px;
-    width: 100%;
+  @media (min-width: 750px) {
+    padding: 65px 32px 38px;
 
     .footer {
+      max-width: 1200px;
+      padding: 0;
       display: flex;
       flex-direction: column;
-      padding: 0px 130px;
+
+      @media (min-width: 1025px) {
+        padding: 0 130px;
+        margin: auto;
+      }
+
+      .link {
+        line-height: 23px;
+      }
 
       .footer-content {
-        margin: 0 0 50px;
+        justify-content: space-between;
+
+        margin: 0px 0px 50px;
+        &__logo {
+          margin-right: 80px;
+        }
+
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
 
         &__items {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
           width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+
+          &-list {
+            padding: 0 16px;
+            margin: 0 16px 30px 0;
+            width: fit-content;
+          }
         }
       }
 
       .footer-bottom {
         flex-direction: row;
         justify-content: space-between;
-        &__social {
-          padding: 20px;
+        @media (max-width: 1310px) {
+          flex-direction: column;
+        }
+
+        &__info {
+          margin: 80px 0 0 0;
+          padding: 0;
+          @media (max-width: 1310px) {
+            margin: 30px 0 0 0;
+          }
+          a {
+            padding: 20px;
+          }
+        }
+
+        &__store {
+          padding: 0;
         }
       }
     }
@@ -220,7 +259,7 @@ export default function Footer() {
           <a className="link-info header">© 2021 Electrify America</a>
           <a className="link-info">Privacy</a>
           <a className="link-info">Terms of use</a>
-          <a className="link-info">Social Media House</a>
+          <a className="link-info">Social Media House Rules</a>
           <a className="link-info">
             Support: <span>1-833-632-2778</span>
           </a>
