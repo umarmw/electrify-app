@@ -1,11 +1,15 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import styled from 'styled-components'
+
+const StyledWrapper = styled.div`
+  font-family: 'Omnes';
+`
+
 
 export default function PostBody({ content }) {
   return (
-    <div className="">
-      <div>
-        {documentToReactComponents(content.json)}
-      </div>
-    </div>
+    <StyledWrapper>
+      {documentToReactComponents(content.json)}
+    </StyledWrapper>
   )
 }
