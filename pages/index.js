@@ -5,6 +5,8 @@ import HeroPost from "../components/hero-post";
 import Layout from "../components/layout";
 import HeroBanner from "../components/hero-banner";
 import AboutBanner from "../components/about-banner";
+import Contactless from '../components/contactless-post';
+
 import {
   getAllPostsForHome,
   getHeroBanner,
@@ -111,6 +113,7 @@ export default function Index({
                       excerpt={item.excerpt}
                     />
                   ))}
+                  <Contactless />
             </div>
           </InnerContainer>
 
