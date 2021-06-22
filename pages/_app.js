@@ -35,6 +35,13 @@ const GlobalStyle = createGlobalStyle`
   .img--rounded {
     border-radius: 4px;
   }
+
+  main {
+    padding: 0;
+    @media only screen and (min-width: 768px){
+      padding: 40px;
+    }
+  }
 `
 
 function MyApp({ Component, pageProps }) {

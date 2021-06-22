@@ -19,7 +19,6 @@ const AboutBannerStyle = styled.div`
             height: 100%;
 
             @media only screen and (min-width: 768px){
-                margin: 25px;
                 border-radius: 15px;
             }
         } 
