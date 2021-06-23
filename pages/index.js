@@ -91,12 +91,13 @@ export default function Index({
               {posts &&
                 posts
                   .slice(0, 3)
-                  .map((item) => (
+                  .map((item, i) => (
                     <HeroPost
                       title={item.title}
                       introImage={item.introImage}
                       slug={item.slug}
                       excerpt={item.excerpt}
+                      key={i}
                     />
                   ))}
             </div>
@@ -105,12 +106,13 @@ export default function Index({
               {posts &&
                 posts
                   .slice(3, 6)
-                  .map((item) => (
+                  .map((item, i) => (
                     <HeroPost
                       title={item.title}
                       introImage={item.introImage}
                       slug={item.slug}
                       excerpt={item.excerpt}
+                      key={i}
                     />
                   ))}
                   <Contactless />

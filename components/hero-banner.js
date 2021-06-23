@@ -143,35 +143,46 @@ const HeroBannerStyle = styled.div`
 
 const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
 
-    const [isMobile, setIsMobile] = useState(true);
+    // const [isMobile, setIsMobile] = useState(true);
 
     const Arrow_SVG = 
-        <svg width="15" height="15" data-v-1dec9b0e="" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow">
-            <path data-v-1dec9b0e="" d="M.785.556c-.309.309-.309.81 0 1.12l5.038 5.037-5.262 5.262a.792.792 0 001.12 1.12L7.356 7.42a1 1 0 000-1.414L1.905.556a.792.792 0 00-1.12 0z" fill="#EFEFEF"></path>
+        <svg width="15" height="15" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="arrow">
+            <path d="M.785.556c-.309.309-.309.81 0 1.12l5.038 5.037-5.262 5.262a.792.792 0 001.12 1.12L7.356 7.42a1 1 0 000-1.414L1.905.556a.792.792 0 00-1.12 0z" fill="#EFEFEF"></path>
         </svg>;
 
-    const handleResize = () => {
-        if (window) {
-            setIsMobile(window.innerWidth < 768);
-        }
-    };
+    // const handleResize = () => {
+    //     if (window) {
+    //         setIsMobile(window.innerWidth < 768);
+    //     }
+    // };
 
-    useEffect(() => {
-        handleResize();
-        if (window) {
-            window.addEventListener('resize', handleResize);
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }
-    });
+    // useEffect(() => {
+    //     handleResize();
+    //     if (window) {
+    //         window.addEventListener('resize', handleResize);
+    //         return () => {
+    //             window.removeEventListener('resize', handleResize);
+    //         };
+    //     }
+    // });
 
     return (
       <HeroBannerStyle>
         <div className="image_wrapper">
-            <img src={(isMobile)
+
+        <picture>
+            <source srcSet={`${imageDesktop?.url}?fm=webp`} media="(min-width: 768px)" type="image/webp" />
+            <source srcSet={`${imageMobile?.url}?fm=webp`} media="(max-width: 767px)" type="image/webp" />
+            <source srcSet={`${imageDesktop?.url}`} media="(min-width: 768px)" type="image/png" />
+            <source srcSet={`${imageMobile?.url}`} media="(max-width: 767px)" type="image/png" />
+            <img src={imageMobile?.url} alt="Woman charging an electric vehicle" loading="lazy" />
+        </picture>
+
+            {/* <img src={(isMobile)
             ? imageMobile?.url
-            : imageDesktop?.url} alt='Woman charging an electric vehicle' loading="lazy" />
+            : imageDesktop?.url} alt='Woman charging an electric vehicle' loading="lazy" /> */}
+
+
         </div>
         <div className="gradient" />
         <div className='hero_text_container'> 
