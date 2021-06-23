@@ -175,7 +175,7 @@ const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
             <source srcSet={`${imageMobile?.url}?fm=webp`} media="(max-width: 767px)" type="image/webp" />
             <source srcSet={`${imageDesktop?.url}`} media="(min-width: 768px)" type="image/png" />
             <source srcSet={`${imageMobile?.url}`} media="(max-width: 767px)" type="image/png" />
-            <img src={imageMobile?.url} alt="Woman charging an electric vehicle" loading="lazy" />
+            <img src={imageMobile?.url} alt="Woman charging an electric vehicle" />
         </picture>
 
             {/* <img src={(isMobile)
