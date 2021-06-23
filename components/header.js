@@ -15,6 +15,25 @@ const Navbar = styled.div`
   z-index: 1;
   letter-spacing: 0.02em;
 
+  .hamburger {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 13px 10px;
+    display: grid;
+    float: right;
+
+    .line {
+      height: 2.5px;
+      width: 100%;
+      background-color: #fff;
+
+      :last-child {
+        width: 60%;
+      }
+    }
+  }
+
   .search-textbox {
     width: 100px;
     padding: 0;
@@ -33,9 +52,10 @@ const Navbar = styled.div`
   }
 
   .navbar {
-    padding: 0 30px 0 40px;
+    padding: 0 40px;
     width: 100%;
     max-width: auto;
+    height: 100%;
 
     @media (min-width: 1025px) {
       width: 100%;
@@ -43,19 +63,21 @@ const Navbar = styled.div`
       padding: 0 20px;
     }
 
-    height: 60px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 1;
 
     //logo
     &__logo {
-      width: 135px;
       height: auto;
       cursor: pointer;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
 
       .logo {
-        width: 115px;
+        width: 116px;
         flex-shrink: 0;
       }
     }
@@ -141,6 +163,8 @@ const Navbar = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: center;
+      height: 100%;
 
       &__search {
         display: flex;
@@ -174,17 +198,17 @@ const Navbar = styled.div`
 
     .icons {
       color: #fff;
-      padding: 5px;
+      padding: 6px;
+      font-size: 16px;
     }
 
     .navbar-search {
       display: flex;
       flex-direction: row;
       align-items: center;
-      /* padding-left: 10px; */
 
       svg {
-        margin: 0 0 0 20px;
+        padding: 0 10px;
       }
     }
   }
@@ -331,9 +355,9 @@ const Header = ({ menulinks }) => {
             >
               <div className="navbar-content__list-left-items">
                 {menulinks &&
-                  menulinks?.menulinks?.items?.map(({ title }) => {
+                  menulinks.menulinks.items.map(({ title }) => {
                     return (
-                      <Link href="/">
+                      <Link href="#" key={title}>
                         <a className="left-link link">{title}</a>
                       </Link>
                     );
@@ -367,7 +391,15 @@ const Header = ({ menulinks }) => {
 
           <div className={isClickedSearchIcon ? "displaynone" : ""}>
             <div className="mobile-nav icons" onClick={toggleClicked}>
-              {isClicked ? <FaTimes /> : <FaBars />}
+              {isClicked ? (
+                ""
+              ) : (
+                <div className="hamburger">
+                  <div className="line"></div>
+                  <div className="line"></div>
+                  <div className="line"></div>
+                </div>
+              )}
             </div>
           </div>
         </div>
