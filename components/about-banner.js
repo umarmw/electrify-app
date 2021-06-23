@@ -40,7 +40,22 @@ const AboutBannerStyle = styled.div`
 
             @media only screen and (min-width: 768px){
                 color: white;
-                font-size: 15px;
+                font-size: 16px;
+                left: -49px;
+                position: relative;
+                top: -65px;
+            }
+
+            @media only screen and (min-width: 1024px){
+                left: 3px;
+                position: relative;
+                top: -60px;
+            }
+
+            @media only screen and (min-width: 1440px){
+                left: -10px;
+                position: relative;
+                top: -25px;
             }
 
             span {
@@ -64,9 +79,20 @@ const AboutBannerStyle = styled.div`
         width:100%;
 
         img {
-            width: 100%;
+            width: 90%;
             height: 100%;
             border-radius: 5px;
+            margin-left: 15px;
+
+            @media only screen and (min-width: 768px){
+                width: 100%;
+                margin-left: 0;
+                border-radius: 15px;
+            }
+
+            @media only screen and (min-width: 1440px){
+                border-radius: 10px;
+            }
         } 
     }
     
@@ -79,20 +105,20 @@ const AboutBannerStyle = styled.div`
 
         @media only screen and (min-width: 768px){
             position: absolute;
-            top: 125px;
-            left: 100px;
+            top: 66px;
+            left: 55px;
             margin: 0 150px 0 0px;
         }
 
         @media only screen and (min-width: 1024px){
             position: absolute;
-            top: 125px;
+            top: 70px;
             left: 90px;
         }
 
         @media only screen and (min-width: 1440px){
             position: absolute;
-            top: 150px;
+            top: 130px;
             left: 50px;
         }
     }
@@ -104,24 +130,28 @@ const AboutBannerStyle = styled.div`
         letter-spacing: .05em;
 
         @media only screen and (min-width: 768px){
-            font-size: 48px;
+            font-size: 40px;
             color: white;
+            line-height: 40px;
         }
 
         @media only screen and (min-width: 1024px){
             width: 400px;
-            line-height: 40px;
+            line-height: 44px;
+            font-size: 46px;
         }
 
         @media only screen and (min-width: 1440px){
             width: 500px;
-            line-height: 50px;
+            line-height: 53px;
+            font-size: 48px;
         }
     }
 
     .hero_text_detail{
         margin-left: 24px;
         margin-top: 24px;
+        margin-right: 20px;
         font-size: 18px;
         line-height: 24px;
         letter-spacing: .05em;
@@ -129,17 +159,21 @@ const AboutBannerStyle = styled.div`
 
         @media only screen and (min-width: 768px){
             color:white;
-            line-height: 25px;
+            line-height: 22px;
             margin-top: 15px;
+            font-size: 16px;
         }
 
         @media only screen and (min-width: 1024px){
-            margin-right: 100px
+            margin-right: 100px;
+            font-size: 20px;
+            line-height: 27px;
         }
         
         @media only screen and (min-width: 1440px){
-            font-size: 20px;
+            font-size: 19px;
             width: 500px;
+            line-height: 30px;
         }
     }
 `;

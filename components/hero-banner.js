@@ -28,17 +28,21 @@ const HeroBannerStyle = styled.div`
         position: absolute;
         top: 0;
         width: 100%;
-        height: 100%;
+        height: 99%;
         background: -webkit-gradient(linear,left top,right top,color-stop(5.26%,transparent),color-stop(71.78%,rgba(0,0,0,.8)),to(rgba(0,0,0,.9)));
         -webkit-transform: rotate(-180deg);
         transform: rotate(-180deg);
         opacity: .6;
+
+        @media only screen and (min-width: 768px){
+            border-radius: 14px;
+        }
     }
     
     .hero_text_container{
         position: absolute;
         bottom: 45px;
-        left: 0;
+        left: 22px;
         font-family: 'Omnes';
         font-style: normal;
         margin-left: -20px;
@@ -48,9 +52,16 @@ const HeroBannerStyle = styled.div`
             left: 100px;
         }
 
+        @media only screen and (min-width: 1024px){
+            position: absolute;
+            left: 100px;
+            top: 121px;
+        }
+
         @media only screen and (min-width: 1440px){
             position: absolute;
-            bottom: 150px;
+            left: 100px;
+            top: 266px;
         }
     }
 
@@ -71,7 +82,8 @@ const HeroBannerStyle = styled.div`
     }
 
     .hero_text_detail{
-        margin: 24px 24px 32px 24px;
+        margin: 24px 0px 32px 24px;
+        width: 275px;
         font-size: 18px;
         line-height: 30px;
         color: #fefefe;
