@@ -82,7 +82,8 @@ const HeroBannerStyle = styled.div`
     }
 
     .hero_text_detail{
-        margin: 24px 24px 32px 24px;
+        margin: 24px 0px 32px 24px;
+        width: 275px;
         font-size: 18px;
         line-height: 30px;
         color: #fefefe;
