@@ -13,7 +13,7 @@ const Navbar = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1;
-
+  letter-spacing: 0.02em;
   .navbar {
     padding: 0 30px 0 40px;
     width: 100%;
@@ -22,7 +22,7 @@ const Navbar = styled.div`
     @media (min-width: 1025px) {
       width: 100%;
       max-width: 1200px;
-      padding: 0 20px 0 0;
+      padding: 0 20px;
     }
 
     height: 60px;
@@ -89,13 +89,14 @@ const Navbar = styled.div`
             .link {
               color: #fff;
               text-decoration: none;
-              padding: 15px 15px 15px 0;
+              padding: 0 20px;
               text-transform: uppercase;
               font-size: 14px;
 
               font-weight: 500;
             }
             .left-link {
+              padding: 15px 15px 15px 0px;
             }
           }
         }
@@ -108,8 +109,7 @@ const Navbar = styled.div`
               color: #fff;
               text-decoration: none;
               text-transform: uppercase;
-              font-size: 16px;
-              font-size: 16px;
+              font-size: 14px;
               font-weight: 600;
               line-height: 50px;
             }
@@ -159,6 +159,10 @@ const Navbar = styled.div`
       flex-direction: row;
       align-items: center;
       padding-left: 10px;
+
+      svg {
+        margin: 0 0 0 30px;
+      }
     }
   }
 
@@ -277,13 +281,14 @@ const Header = ({ menulinks }) => {
           <div className="navbar-content__list">
             <div className="navbar-content__list-left">
               <div className="navbar-content__list-left-items">
-                {menulinks && menulinks?.menulinks?.items?.map(({ title, url }) => {
-                  return (
-                    <Link href={url}>
-                      <a className="left-link link">{title}</a>
-                    </Link>
-                  );
-                })}
+                {menulinks &&
+                  menulinks?.menulinks?.items?.map(({ title, url }) => {
+                    return (
+                      <Link href={url}>
+                        <a className="left-link link">{title}</a>
+                      </Link>
+                    );
+                  })}
               </div>
             </div>
 
