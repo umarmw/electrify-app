@@ -54,8 +54,9 @@ const HeroBannerStyle = styled.div`
 
         @media only screen and (min-width: 1024px){
             position: absolute;
-            left: 100px;
-            top: 121px;
+    top: 40%;
+    left: 100px;
+    z-index: 1;
         }
 
         @media only screen and (min-width: 1440px){
@@ -75,6 +76,10 @@ const HeroBannerStyle = styled.div`
         span {
             font-weight: 500
         }
+        
+        @media only screen and (min-width: 1024px){
+            font-size: 48px;
+        }
 
         @media only screen and (min-width: 1440px){
             font-size: 48px;
@@ -84,9 +89,15 @@ const HeroBannerStyle = styled.div`
     .hero_text_detail{
         margin: 24px 0px 32px 24px;
         width: 275px;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 30px;
         color: #fefefe;
+
+        @media only screen and (min-width: 1024px){
+            font-size: 24px;
+            margin-right: 10px;
+            width: 420px;
+        }
 
         @media only screen and (min-width: 1440px){
             font-size: 24px;

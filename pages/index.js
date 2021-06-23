@@ -33,13 +33,32 @@ const InnerContainer = styled.div`
   }
 
   .post-container__title {
-    color: rgb(10, 18, 74);
+    /* color: rgb(10, 18, 74);
     font-size: 32px;
     letter-spacing: 0.02em;
     line-height: 36px;
     font-family: Omnes;
     font-weight: 600;
-    max-width: 504px;
+    max-width: 504px; */
+    font-size: 20px;
+    margin-bottom: -33px;
+    margin-left: 0;
+    line-height: 34px;
+    margin-top: -12px;
+    font-family: 'Omnes';
+
+    @media only screen and (min-width: 1024px) {
+      color: #0a124a;
+      font-size: 32px;
+      letter-spacing: .02em;
+      line-height: 36px;
+      font-family: Omnes;
+      font-weight: bold;
+      max-width: 504px;
+      margin-left: 20px;
+      margin-top: 5px;
+      margin-bottom: -5px;
+    }
   }
 
   .post-container__section {
