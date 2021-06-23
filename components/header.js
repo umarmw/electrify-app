@@ -14,6 +14,24 @@ const Navbar = styled.div`
   justify-content: center;
   z-index: 1;
   letter-spacing: 0.02em;
+
+  .search-textbox {
+    width: 100px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    input {
+      width: 100px;
+      border: none;
+      background-color: #0b0f4d;
+      border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+      display: inline-block;
+      padding: 7px 11px 7px 28px;
+      color: #fff;
+    }
+  }
+
   .navbar {
     padding: 0 30px 0 40px;
     width: 100%;
@@ -37,7 +55,8 @@ const Navbar = styled.div`
       cursor: pointer;
 
       .logo {
-        width: 100%;
+        width: 115px;
+        flex-shrink: 0;
       }
     }
 
@@ -145,6 +164,10 @@ const Navbar = styled.div`
     .displaynone {
       display: none;
     }
+
+    .z-index {
+      visibility: hidden;
+    }
     .displayblock {
       display: block;
     }
@@ -158,18 +181,20 @@ const Navbar = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding-left: 10px;
+      /* padding-left: 10px; */
 
       svg {
-        margin: 0 0 0 30px;
+        margin: 0 0 0 20px;
       }
     }
   }
 
   @media (min-width: 1033px) {
     .navbar {
-      justify-content: center;
-      align-items: center !important;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around !important;
       margin: 0 2%;
       padding: 0;
 
@@ -242,11 +267,28 @@ const Navbar = styled.div`
           line-height: normal;
           display: flex;
           align-items: center;
+          padding: 0 20px;
         }
       }
-      .mobile-nav {
-        display: none;
+
+      .search-textbox {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 10px 0 0 120px;
+
+        input {
+          width: 400px;
+          border: none;
+          background-color: #0b0f4d;
+          border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
+          display: inline-block;
+          padding: 7px 11px 7px 28px;
+        }
       }
+    }
+    .mobile-nav {
+      display: none;
     }
   }
 `;
@@ -272,6 +314,9 @@ const Header = ({ menulinks }) => {
             <img className="logo" src="/images/logo.svg" />
           </Link>
         </div>
+        <div className={isClickedSearchIcon ? "search-textbox" : "displaynone"}>
+          <input type="text" placeholder="SEARCH" className="searchbox" />
+        </div>
 
         <div className={`navbar-content ${isClicked ? "active" : "no-active"}`}>
           <div
@@ -279,12 +324,16 @@ const Header = ({ menulinks }) => {
             onClick={toggleClicked}
           ></div>
           <div className="navbar-content__list">
-            <div className="navbar-content__list-left">
+            <div
+              className={
+                isClickedSearchIcon ? "z-index" : "navbar-content__list-left"
+              }
+            >
               <div className="navbar-content__list-left-items">
                 {menulinks &&
-                  menulinks?.menulinks?.items?.map(({ title, url }) => {
+                  menulinks?.menulinks?.items?.map(({ title }) => {
                     return (
-                      <Link href={url}>
+                      <Link href="/">
                         <a className="left-link link">{title}</a>
                       </Link>
                     );
@@ -313,9 +362,6 @@ const Header = ({ menulinks }) => {
           <div className="navbar-gadgets__search">
             <div className="navbar-search icons" onClick={toggleSearch}>
               {isClickedSearchIcon ? <FaTimes /> : <FaSearch />}
-            </div>
-            <div className={isClickedSearchIcon ? "" : "displaynone"}>
-              <input type="text" placeholder="SEARCH" className="searchbox" />
             </div>
           </div>
 
