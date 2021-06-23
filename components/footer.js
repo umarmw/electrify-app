@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Social from "./social-links";
+import {GOOGLE_PLAY, APPLE_STORE} from "../lib/constants";
 
 const FooterStyle = styled.div`
   height: auto;
@@ -247,8 +248,27 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <div className="footer-bottom__store">
-            <img className="logo" src="/images/apple.png" />
-            <img className="logo" src="/images/android.png" />
+
+            <picture>
+              <source className="logo" srcSet={`${APPLE_STORE}?fm=webp&w=93&h=31`} type="image/webp" />
+              <img
+                className="logo"
+                src={`${APPLE_STORE}?w=93&h=31`}
+                alt="Download on the App Store"
+                loading="lazy"
+              />
+            </picture>
+
+            <picture>
+              <source className="logo" srcSet={`${GOOGLE_PLAY}?fm=webp&w=93&h=31`} type="image/webp" />
+              <img
+                className="logo"
+                src={`${GOOGLE_PLAY}?w=93&h=31`}
+                alt="Download on the GooglePlay Store"
+                loading="lazy"
+              />
+            </picture>
+
           </div>
 
           <div className="footer-bottom__social">

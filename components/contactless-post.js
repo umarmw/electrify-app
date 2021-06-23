@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {GOOGLE_PLAY, APPLE_STORE} from "../lib/constants";
 
 const ContactlessStyle = styled.div`
     margin-top: 30px;
@@ -75,6 +76,7 @@ const ContactlessStyle = styled.div`
 `;
 
 const Contactless = () => {
+
     return (
         <ContactlessStyle>
             <div className='contactless__title'>
@@ -86,11 +88,29 @@ const Contactless = () => {
             </div>
             <div className='contactless__icons'>
                 <a href="https://itunes.apple.com/us/app/electrify-america/id1458030456?mt=8">
-                        <img alt="Download on the App Store" src="https://www.electrifyamerica.com/img/app-store-logo.e2326c69.png" />
+
+                    <picture>
+                        <source srcSet={`${APPLE_STORE}?fm=webp&w=117&h=40`} type="image/webp" />
+                        <img
+                            src={`${APPLE_STORE}?w=117&h=40`}
+                            alt="Download on the App Store"
+                            loading="lazy"
+                        />
+                    </picture>
+
                 </a>
                                 
                 <a href="https://play.google.com/store/apps/details?id=com.ea.evowner&amp;rdid=com.ea.evowner">
-                        <img alt="Get it on Google Play" src="https://www.electrifyamerica.com/img/google-play-badge.6851e3a3.png" />
+
+                    <picture>
+                        <source srcSet={`${GOOGLE_PLAY}?fm=webp&w=117&h=40`} type="image/webp" />
+                        <img
+                            src={`${GOOGLE_PLAY}?w=117&h=40`}
+                            alt="Get it on Google Play"
+                            loading="lazy"
+                        />
+                    </picture>
+
                 </a>          
             </div>
         </ContactlessStyle>
