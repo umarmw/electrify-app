@@ -14,6 +14,11 @@ const ContactlessStyle = styled.div`
         margin-right: 20px;
     }
 
+    @media (min-width: 1125px) {
+        position: relative;
+        top: 55px;
+    }
+
     .contactless__title {
         color: #0a124a;
         font-size: 32px;
@@ -22,6 +27,7 @@ const ContactlessStyle = styled.div`
 
         @media only screen and (min-width: 768px){
             font-size: 20px;
+            line-height: 25px;
         }
         @media only screen and (min-width: 1440px){
             font-size: 32px;
@@ -36,6 +42,10 @@ const ContactlessStyle = styled.div`
         @media only screen and (min-width: 768px){
             font-size: 16px;
         }
+
+        @media only screen and (min-width: 1024px){
+            line-height: 25px;
+        }
         
         @media only screen and (min-width: 1440px){
             font-size: 18px;
@@ -49,9 +59,21 @@ const ContactlessStyle = styled.div`
         align-items: center;
         justify-content: space-around;
 
+        @media only screen and (min-width: 375px){
+            position: relative;
+            left: -20px;
+        }
+
+        @media only screen and (min-width: 425px){
+            position: relative;
+            left: -30px;
+        }
+
         @media only screen and (min-width: 768px){
             flex-direction: column;
             align-items: flex-start;
+            position: relative;
+            left: 0px;
         }
 
         @media only screen and (min-width: 1024px){

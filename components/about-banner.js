@@ -37,6 +37,8 @@ const AboutBannerStyle = styled.div`
             text-transform: uppercase;
             color: #011352;
             font-weight: bold;
+            position: relative;
+            top: 10px;
 
             @media only screen and (min-width: 768px){
                 color: white;
@@ -49,7 +51,11 @@ const AboutBannerStyle = styled.div`
             @media only screen and (min-width: 1024px){
                 left: 3px;
                 position: relative;
-                top: -60px;
+                top: -50px;
+            }
+
+            @media only screen and (min-width: 1200px){
+                top: -15px;
             }
 
             @media only screen and (min-width: 1440px){
@@ -116,6 +122,12 @@ const AboutBannerStyle = styled.div`
             left: 90px;
         }
 
+        @media only screen and (min-width: 1200px){
+            position: absolute;
+            top: 115px;
+            left: 90px;
+        }
+
         @media only screen and (min-width: 1440px){
             position: absolute;
             top: 130px;
@@ -138,7 +150,7 @@ const AboutBannerStyle = styled.div`
         @media only screen and (min-width: 1024px){
             width: 400px;
             line-height: 44px;
-            font-size: 46px;
+            font-size: 48px;
         }
 
         @media only screen and (min-width: 1440px){
@@ -166,8 +178,13 @@ const AboutBannerStyle = styled.div`
 
         @media only screen and (min-width: 1024px){
             margin-right: 100px;
-            font-size: 20px;
+            font-size: 18px;
             line-height: 27px;
+            width: 65%;
+        }
+
+        @media only screen and (min-width: 1200px){
+            font-size: 22px;
         }
         
         @media only screen and (min-width: 1440px){
