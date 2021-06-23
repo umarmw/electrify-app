@@ -8,11 +8,20 @@ const HeroPostStyle = styled.section`
   flex-direction: column;
   width: 100%;
   
+  &:hover .hero__img {
+    transition: box-shadow .1s ease-in-out;
+    box-shadow: 0 20px 15px -2px #ccc;
+    
+  }
 
   @media (min-width: 750px) {
     width: 30%;
     margin-left: 20px;
     margin-right: 20px;
+  }
+
+  &:hover a{
+    color: #29b5d0;
   }
 
   a {
@@ -46,7 +55,7 @@ export default function HeroPost({
 }) {
   return (
     <HeroPostStyle>
-      <div className="">
+      <div className="hero__img">
         <CoverImage title={title} slug={slug} url={introImage.url} />
       </div>
       <div className="">
