@@ -71,6 +71,30 @@ export default function Index({
       <Layout preview={preview}>
         <Head>
           <title>Electrify America</title>
+          <link
+            rel="preload"
+            href="/fonts/omnes_extralight-webfont.woff"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/omnes-regular-webfont.woff"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/omnes_medium-webfont.woff"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/omnes-semibold-webfont.woff"
+            as="font"
+            crossOrigin=""
+          />
         </Head>
 
         <Header menulinks={mainMenuItems} />
