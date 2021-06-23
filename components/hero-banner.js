@@ -23,16 +23,34 @@ const HeroBannerStyle = styled.div`
             }
         } 
     }
+
+    .gradient{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: -webkit-gradient(linear,left top,right top,color-stop(5.26%,transparent),color-stop(71.78%,rgba(0,0,0,.8)),to(rgba(0,0,0,.9)));
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+        opacity: .6;
+    }
     
     .hero_text_container{
         position: absolute;
         bottom: 45px;
         left: 0;
-        opacity: 1.5;
+        font-family: 'Omnes';
+        font-style: normal;
+        margin-left: -20px;
 
         @media only screen and (min-width: 768px){
             max-width:480px;
             left: 100px;
+        }
+
+        @media only screen and (min-width: 1440px){
+            position: absolute;
+            bottom: 150px;
         }
     }
 
@@ -44,8 +62,11 @@ const HeroBannerStyle = styled.div`
         letter-spacing: .05em;
 
         span {
-            font-style: italic;
             font-weight: 500
+        }
+
+        @media only screen and (min-width: 1440px){
+            font-size: 48px;
         }
     }
 
@@ -54,10 +75,10 @@ const HeroBannerStyle = styled.div`
         font-size: 18px;
         line-height: 30px;
         color: #fefefe;
-        /* @media only screen and (min-width: 768px){
-            margin: auto 40px auto 25px;
-        } */
-       
+
+        @media only screen and (min-width: 1440px){
+            font-size: 24px;
+        }
     }
 
     .hero_search_container{
@@ -74,8 +95,9 @@ const HeroBannerStyle = styled.div`
             width: 100%;
             height: 50px;
             border-radius: 25px;
-            font-size: 12px;  
+            font-size: 12px; 
             z-index: -1;
+            border: none;
 
             ::placeholder {
                 position: absolute;
@@ -130,7 +152,7 @@ const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
 
     const handleResize = () => {
         if (window) {
-            setIsMobile(window.innerWidth <= 992);
+            setIsMobile(window.innerWidth < 768);
         }
     };
 
@@ -151,6 +173,7 @@ const HeroBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
             ? imageMobile?.url
             : imageDesktop?.url} alt='Woman charging an electric vehicle' loading="lazy" />
         </div>
+        <div className="gradient" />
         <div className='hero_text_container'> 
             <div className='hero_text_header'>
                 <span>{title}</span>
