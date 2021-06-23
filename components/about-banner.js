@@ -146,37 +146,47 @@ const AboutBannerStyle = styled.div`
 
 const AboutBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
 
-    const [isMobile, setIsMobile] = useState(true);
+    // const [isMobile, setIsMobile] = useState(true);
     
     const Arrow_SVG = 
         <svg className="arrow" width="24" height="15" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
             <path d="M4.898.165a.563.563 0 00-.796.795L7.08 3.938H.562a.563.563 0 000 1.124H7.08L4.101 8.04a.563.563 0 00.796.795l3.937-3.937a.563.563 0 000-.796L4.898.165z"></path>
         </svg>;
 
-    const handleResize = () => {
-        if (window) {
-            setIsMobile(window.innerWidth <= 768);
-        }
-    };
+    // const handleResize = () => {
+    //     if (window) {
+    //         setIsMobile(window.innerWidth <= 768);
+    //     }
+    // };
 
-    useEffect(() => {
-        handleResize();
-        if (window) {
-            window.addEventListener('resize', handleResize);
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }
-    });
+    // useEffect(() => {
+    //     handleResize();
+    //     if (window) {
+    //         window.addEventListener('resize', handleResize);
+    //         return () => {
+    //             window.removeEventListener('resize', handleResize);
+    //         };
+    //     }
+    // });
 
     return (
       <AboutBannerStyle>
         
 
         <div className="image_wrapper">
-            <img src={(isMobile)
+
+            <picture>
+                <source srcSet={`${imageDesktop?.url}?fm=webp`} media="(min-width: 768px)" type="image/webp" />
+                <source srcSet={`${imageMobile?.url}?fm=webp`} media="(max-width: 767px)" type="image/webp" />
+                <source srcSet={`${imageDesktop?.url}`} media="(min-width: 768px)" type="image/png" />
+                <source srcSet={`${imageMobile?.url}`} media="(max-width: 767px)" type="image/png" />
+                <img src={imageMobile?.url} alt="Woman charging an electric vehicle" />
+            </picture>
+
+
+            {/* <img src={(isMobile)
             ? imageMobile?.url
-            : imageDesktop?.url} alt='Woman charging an electric vehicle' loading="lazy" />
+            : imageDesktop?.url} alt='Woman charging an electric vehicle' loading="lazy" /> */}
         </div>
 
         <div className='About__link'>
