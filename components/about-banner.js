@@ -149,7 +149,7 @@ const AboutBanner = ({title, subtitle, imageMobile, imageDesktop}) => {
     const [isMobile, setIsMobile] = useState(true);
     
     const Arrow_SVG = 
-        <svg class="arrow" width="24" height="15" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+        <svg className="arrow" width="24" height="15" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
             <path d="M4.898.165a.563.563 0 00-.796.795L7.08 3.938H.562a.563.563 0 000 1.124H7.08L4.101 8.04a.563.563 0 00.796.795l3.937-3.937a.563.563 0 000-.796L4.898.165z"></path>
         </svg>;
 
